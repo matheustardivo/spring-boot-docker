@@ -52,7 +52,7 @@ class ApplicationConfig {
     def uri
 
     if (guestbookServiceEndpoint?.trim()) {
-      uri = guestbookServiceEndpoint.replace("tcp:", "http:") + "/api/messages"
+      uri = guestbookServiceEndpoint.replace("tcp:", "http:") + "/messages"
 
       println "Using backend: ${uri}"
       return new RestGuestbookService(uri: uri)
@@ -72,6 +72,7 @@ class SessionReplicationConfig {
 
   @Bean
   JedisConnectionFactory connectionFactory() {
+    println "SessionReplicationConfig#connectionFactory REDIS_PORT: ${redisEndpoint}"
     def uri = new URI(redisEndpoint)
     return new JedisConnectionFactory(hostName: uri.host, port: uri.port);
   }
