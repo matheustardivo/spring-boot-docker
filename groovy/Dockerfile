@@ -16,11 +16,11 @@ FROM java:8
 MAINTAINER Ray Tsang <saturnism@gmail.com>
 
 ENV SRC_DIR /app/src
-ENV GROOVY_VERSION 2.4.3
-ENV SPRINGBOOT_VERSION 1.2.3.RELEASE
+ENV GROOVY_VERSION 2.4.5
+ENV SPRINGBOOT_VERSION 1.3.0.RELEASE
 
-RUN curl -s get.gvmtool.net | bash
-RUN bash -c "source $HOME/.gvm/bin/gvm-init.sh && gvm install groovy $GROOVY_VERSION && gvm install springboot $SPRINGBOOT_VERSION"
+RUN curl -s get.sdkman.io | bash
+RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk install groovy $GROOVY_VERSION && sdk install springboot $SPRINGBOOT_VERSION"
 
 RUN mkdir -p $SRC_DIR
 WORKDIR $SRC_DIR
