@@ -14,4 +14,4 @@
 # limitations under the License.
 ###############################################################################
 
-FROM saturnism/spring-boot:1.2.3-jdk-8-groovy-2.4.3-onbuild
+FROM matheustardivo/spring-boot:1.3.0-jdk-8-groovy-2.4.5-onbuild
