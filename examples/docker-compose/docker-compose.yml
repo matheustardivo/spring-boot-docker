@@ -15,7 +15,7 @@
 ###############################################################################
 
 ui:
-  image: saturnism/spring-boot-helloworld-ui
+  image: matheustardivo/helloworld-ui
   ports:
     - "8080:8080"
   links:
@@ -24,10 +24,10 @@ ui:
     - redis
 
 helloworldservice:
-  image: saturnism/spring-boot-helloworld-service
+  image: matheustardivo/helloworld-service
 
 guestbookservice:
-  image: saturnism/guestbook-service
+  image: matheustardivo/guestbook-service
   ports:
     - "8888:8080"
   links:
@@ -35,6 +35,8 @@ guestbookservice:
 
 mysql:
   image: mysql
+  ports:
+    - "3306:3306"
   environment:
     MYSQL_ROOT_PASSWORD: yourpassword
     MYSQL_DATABASE: app
