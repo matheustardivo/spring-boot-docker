@@ -9,7 +9,7 @@ Groovy Applications
 -------------------
 Create a Dockerfile in your project directory:
 
-    FROM saturnism/spring-boot:1.2.3-jdk-8-groovy-2.4.3
+    FROM matheustardivo/spring-boot:1.3.0-jdk-8-groovy-2.4.5
     ADD . $SRC_DIR
 
 You can then build and run the image:
@@ -22,7 +22,7 @@ To avoid this, you can also pre-compile your Groovy application using the `onbui
 
 In the Dockerfile, use:
 
-    FROM saturnism/spring-boot:1.2.3jdk-8-groovy-2.4.3-onbuild
+    FROM matheustardivo/spring-boot:1.3.0-jdk-8-groovy-2.4.5-onbuild
 
 You can then build and run the image just like the previous method:
 
