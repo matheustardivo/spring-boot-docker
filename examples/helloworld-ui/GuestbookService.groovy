@@ -35,21 +35,18 @@ class RestGuestbookService implements GuestbookService {
   def rest = new RestTemplate()
 
   def add(username, message) {
+    println "RestGuestbookService#add uri: ${uri}"
     rest.postForObject(uri, [username: username, message: message, timestamp: new Date()], Map.class)
   }
 
   def all() {
-    def messages = [];
+    println "RestGuestbookService#all uri: ${uri}"
     def resp = rest.getForObject(uri, Map.class)
+    println "RestGuestbookService#all response: ${resp}"
+    println "RestGuestbookService#all resp._embedded.messages: ${resp._embedded.messages}"
 
-    // FIXME =(
-    resp.links.each() {
-      if (it.rel != 'self') {
-        messages << rest.getForObject(it.href, Map.class)
-      }
-    }
+    println "RestGuestbookService#all returning messages: ${resp._embedded.messages}"
 
-    return messages;
+    return resp._embedded.messages
   }
 }
-
